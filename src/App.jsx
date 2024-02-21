@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
+import SkeletonCard from "./SkeletonCard";
 import "react-loading-skeleton/dist/skeleton.css";
 
 const App = () => {
@@ -16,107 +16,19 @@ const App = () => {
       setLoading(false);
     };
 
-    setTimeout(() => {
-      getUser();
-    }, 2000);
+    // setTimeout(() => {
+    getUser();
+    // }, 2000);
   }, []);
 
   return (
-    <div className="max-w-screen-2xl mx-auto px-16 bg-black min-h-screen grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-center gap-10">
-      {loading ? (
+    <div className="max-w-screen-2xl mx-auto px-16 bg-black min-h-screen grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-center gap-10 py-5">
+      {loading ?
         <>
-          <div className="card w-96 h-96 bg-base-200 shadow-xl">
-            <SkeletonTheme baseColor="#606060" highlightColor="#222">
-              <figure className="px-10 py-10">
-                <Skeleton circle={true} height={150} width={150}></Skeleton>
-              </figure>
-              <div className="text-center">
-                <h2 className="px-10 pb-5 font-bold text-3xl text-center">
-                  <Skeleton />
-                </h2>
-                <p className="px-10 text-center text-xl">
-                  <Skeleton count={2} />
-                </p>
-              </div>
-            </SkeletonTheme>
-          </div>
-          <div className="card w-96 h-96 bg-base-200 shadow-xl">
-            <SkeletonTheme baseColor="#606060" highlightColor="#222">
-              <figure className="px-10 py-10">
-                <Skeleton circle={true} height={150} width={150}></Skeleton>
-              </figure>
-              <div className="text-center">
-                <h2 className="px-10 pb-5 font-bold text-3xl text-center">
-                  <Skeleton />
-                </h2>
-                <p className="px-10 text-center text-xl">
-                  <Skeleton count={2} />
-                </p>
-              </div>
-            </SkeletonTheme>
-          </div>
-          <div className="card w-96 h-96 bg-base-200 shadow-xl">
-            <SkeletonTheme baseColor="#606060" highlightColor="#222">
-              <figure className="px-10 py-10">
-                <Skeleton circle={true} height={150} width={150}></Skeleton>
-              </figure>
-              <div className="text-center">
-                <h2 className="px-10 pb-5 font-bold text-3xl text-center">
-                  <Skeleton />
-                </h2>
-                <p className="px-10 text-center text-xl">
-                  <Skeleton count={2} />
-                </p>
-              </div>
-            </SkeletonTheme>
-          </div>
-          <div className="card w-96 h-96 bg-base-200 shadow-xl">
-            <SkeletonTheme baseColor="#606060" highlightColor="#222">
-              <figure className="px-10 py-10">
-                <Skeleton circle={true} height={150} width={150}></Skeleton>
-              </figure>
-              <div className="text-center">
-                <h2 className="px-10 pb-5 font-bold text-3xl text-center">
-                  <Skeleton />
-                </h2>
-                <p className="px-10 text-center text-xl">
-                  <Skeleton count={2} />
-                </p>
-              </div>
-            </SkeletonTheme>
-          </div>
-          <div className="card w-96 h-96 bg-base-200 shadow-xl">
-            <SkeletonTheme baseColor="#606060" highlightColor="#222">
-              <figure className="px-10 py-10">
-                <Skeleton circle={true} height={150} width={150}></Skeleton>
-              </figure>
-              <div className="text-center">
-                <h2 className="px-10 pb-5 font-bold text-3xl text-center">
-                  <Skeleton />
-                </h2>
-                <p className="px-10 text-center text-xl">
-                  <Skeleton count={2} />
-                </p>
-              </div>
-            </SkeletonTheme>
-          </div>
-          <div className="card w-96 h-96 bg-base-200 shadow-xl">
-            <SkeletonTheme baseColor="#606060" highlightColor="#222">
-              <figure className="px-10 py-10">
-                <Skeleton circle={true} height={150} width={150}></Skeleton>
-              </figure>
-              <div className="text-center">
-                <h2 className="px-10 pb-5 font-bold text-3xl text-center">
-                  <Skeleton />
-                </h2>
-                <p className="px-10 text-center text-xl">
-                  <Skeleton count={2} />
-                </p>
-              </div>
-            </SkeletonTheme>
-          </div>
+          <SkeletonCard /><SkeletonCard /><SkeletonCard />
+          <SkeletonCard /><SkeletonCard /><SkeletonCard />
         </>
-      ) : (
+        :
         <>
           {user.map((user) => (
             <div key={user.id}>
@@ -137,7 +49,7 @@ const App = () => {
             </div>
           ))}
         </>
-      )}
+      }
     </div>
   );
 };
